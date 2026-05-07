@@ -1,0 +1,14 @@
+{
+  "workspace": "C:\\fun_dev_projects\\api-observability-platform\\deliverables\\presentation-workspace",
+  "pptx": "C:\\fun_dev_projects\\api-observability-platform\\deliverables\\presentation-workspace\\output\\API_Observability_Platform_Presentation.pptx",
+  "checks": {
+    "output_hygiene": {
+      "output_dir": "C:\\fun_dev_projects\\api-observability-platform\\deliverables\\presentation-workspace\\output",
+      "unexpected_files": []
+    }
+  },
+  "failures": [
+    "PPTX package inspection failed: unzip -Z1 C:\\fun_dev_projects\\api-observability-platform\\deliverables\\presentation-workspace\\output\\API_Observability_Platform_Presentation.pptx failed"
+  ],
+  "warnings": []
+}

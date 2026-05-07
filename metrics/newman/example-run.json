@@ -1,0 +1,61 @@
+{
+  "runId": "synthetic-pass",
+  "generatedAt": "2026-05-07T09:00:00.000Z",
+  "collection": "API Observability Platform - Synthetic SLA Suite",
+  "totals": {
+    "requests": 4,
+    "failedAssertions": 0,
+    "averageResponseTimeMs": 118,
+    "slaCompliancePercent": 100
+  },
+  "endpoints": [
+    {
+      "endpoint": "/health",
+      "method": "GET",
+      "responseTimeMs": 26,
+      "statusCode": 200,
+      "timestamp": "2026-05-07T09:00:00.000Z",
+      "sla": {
+        "name": "Response time under 300ms",
+        "thresholdMs": 300,
+        "passed": true
+      }
+    },
+    {
+      "endpoint": "/users",
+      "method": "GET",
+      "responseTimeMs": 91,
+      "statusCode": 200,
+      "timestamp": "2026-05-07T09:00:01.000Z",
+      "sla": {
+        "name": "Response time under 300ms",
+        "thresholdMs": 300,
+        "passed": true
+      }
+    },
+    {
+      "endpoint": "/posts",
+      "method": "GET",
+      "responseTimeMs": 132,
+      "statusCode": 200,
+      "timestamp": "2026-05-07T09:00:02.000Z",
+      "sla": {
+        "name": "Response time under 300ms",
+        "thresholdMs": 300,
+        "passed": true
+      }
+    },
+    {
+      "endpoint": "/posts",
+      "method": "POST",
+      "responseTimeMs": 222,
+      "statusCode": 201,
+      "timestamp": "2026-05-07T09:00:03.000Z",
+      "sla": {
+        "name": "Response time under 300ms",
+        "thresholdMs": 300,
+        "passed": true
+      }
+    }
+  ]
+}

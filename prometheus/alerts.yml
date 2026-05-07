@@ -1,0 +1,32 @@
+groups:
+  - name: api-observability-alerts
+    rules:
+      - alert: HighApiLatency
+        expr: histogram_quantile(0.95, sum(rate(api_response_time_seconds_bucket[5m])) by (le)) > 0.3
+        for: 2m
+        labels:
+          severity: warning
+          team: platform
+        annotations:
+          summary: API p95 latency is above SLA
+          description: p95 latency exceeded the 300ms SLA target for more than 2 minutes.
+
+      - alert: ElevatedErrorRate
+        expr: 100 * sum(rate(api_error_count[5m])) / sum(rate(api_request_count[5m])) > 1
+        for: 2m
+        labels:
+          severity: critical
+          team: sre
+        annotations:
+          summary: API error rate is above 1 percent
+          description: Investigate recent failures and route-level status codes in Grafana.
+
+      - alert: ApiTargetDown
+        expr: up{job="api-observability-service"} == 0
+        for: 30s
+        labels:
+          severity: critical
+          team: platform
+        annotations:
+          summary: API target is not scrapeable
+          description: Prometheus cannot scrape the Express /metrics endpoint.

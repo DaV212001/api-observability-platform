@@ -1,0 +1,9 @@
+node_modules/
+.npm-cache/
+npm-debug.log*
+.env
+coverage/
+metrics/newman/*.json
+!metrics/newman/example-run.json
+dist/
+.DS_Store

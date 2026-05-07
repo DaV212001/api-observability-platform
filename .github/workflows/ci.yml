@@ -1,0 +1,53 @@
+name: API Observability CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Jest contract and metrics checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Jest tests
+        run: npm test
+
+  docker-smoke:
+    name: Docker Compose smoke test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Start observability stack
+        run: docker compose up -d --build
+
+      - name: Wait for API
+        run: |
+          for i in {1..30}; do
+            curl -fsS http://localhost:3000/health && exit 0
+            sleep 2
+          done
+          exit 1
+
+      - name: Verify metrics endpoint
+        run: curl -fsS http://localhost:3000/metrics | grep api_request_count
+
+      - name: Stop stack
+        if: always()
+        run: docker compose down

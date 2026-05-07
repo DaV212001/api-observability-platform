@@ -1,0 +1,42 @@
+{
+  "service": "api-observability-platform",
+  "window": "last_24h_sample",
+  "generatedAt": "2026-05-07T09:05:00.000Z",
+  "summary": {
+    "availabilityPercent": 99.95,
+    "slaCompliancePercent": 99.2,
+    "p95LatencyMs": 246,
+    "totalRequests": 18420,
+    "failedRequests": 18
+  },
+  "endpointBreakdown": [
+    {
+      "endpoint": "/health",
+      "method": "GET",
+      "availabilityPercent": 100,
+      "p95LatencyMs": 38,
+      "errorRatePercent": 0
+    },
+    {
+      "endpoint": "/users",
+      "method": "GET",
+      "availabilityPercent": 99.98,
+      "p95LatencyMs": 142,
+      "errorRatePercent": 0.02
+    },
+    {
+      "endpoint": "/posts",
+      "method": "GET",
+      "availabilityPercent": 99.94,
+      "p95LatencyMs": 216,
+      "errorRatePercent": 0.08
+    },
+    {
+      "endpoint": "/posts",
+      "method": "POST",
+      "availabilityPercent": 99.88,
+      "p95LatencyMs": 284,
+      "errorRatePercent": 0.19
+    }
+  ]
+}
