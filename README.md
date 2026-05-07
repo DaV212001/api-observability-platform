@@ -1,6 +1,6 @@
 # API Testing & Monitoring Command Center
 
-A portfolio-quality full-stack API testing and observability system that simulates a lightweight production monitoring environment for DevOps and SRE workflows.
+A full-stack API testing and observability system that simulates a lightweight production monitoring environment for DevOps and SRE workflows.
 
 It includes an Express API, automated Postman/Newman synthetic tests, Jest contract tests, Prometheus metrics, Grafana dashboards, Docker Compose orchestration, optional k6 load testing, alert simulation, and example historical metrics.
 
@@ -134,7 +134,7 @@ Prometheus loads alert rules from `prometheus/alerts.yml`:
 - `ElevatedErrorRate`
 - `ApiTargetDown`
 
-These are intentionally practical portfolio alerts that map to the Grafana panels.
+These are intentionally practical alerts that map to the Grafana panels.
 
 ## Docker
 
